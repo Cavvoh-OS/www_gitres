@@ -9,7 +9,7 @@ ANDROID_VERSION="14"
 # devices.json
 
 echo "Fetching devices from OTA..."
-curl -s "https://api.github.com/repos/Evolution-X/OTA/contents/builds?ref=$BRANCH" | jq -r '.[] | select(.name | endswith(".json")) | .name' | while read -r filename; do
+curl -s "https://api.github.com/repos/Cavvoh-OS/OTA/contents/builds?ref=$BRANCH" | jq -r '.[] | select(.name | endswith(".json")) | .name' | while read -r filename; do
   echo "\"${filename%.json}\""
 done | sort -f | jq -s '.' > "devices/devices.json"
 
@@ -43,7 +43,7 @@ jq -r '.[]' "devices/devices.json" | while read -r device; do
   md_file="devices/instructions/$device.md"
 
   if [ ! -f "$md_file" ]; then
-    json_url="https://raw.githubusercontent.com/Evolution-X/OTA/refs/heads/$BRANCH/builds/$device.json"
+    json_url="https://raw.githubusercontent.com/Cavvoh-OS/OTA/refs/heads/$BRANCH/builds/$device.json"
     json_content=$(curl -s "$json_url")
 
     if [ "$(echo "$json_content" | jq '.response | length')" -gt 0 ]; then
@@ -61,7 +61,7 @@ jq -r '.[]' "devices/devices.json" | while read -r device; do
       images_to_download=$(echo "$initial_images" | tr '\n' ' ')
       images_to_download="${images_to_download// /, }"
       images_to_download="${images_to_download%, }, rom"
-      download_url="https://sourceforge.net/projects/evolution-x/files/$device/$ANDROID_VERSION/"
+      download_url="https://sourceforge.net/projects/cavvoh-os/files/$device/$ANDROID_VERSION/"
 
       {
         echo "## THESE INSTRUCTIONS ASSUME YOUR DEVICES BOOTLOADER IS ALREADY UNLOCKED"

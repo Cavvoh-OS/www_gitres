@@ -1,6 +1,6 @@
 ## THESE INSTRUCTIONS ASSUME YOUR DEVICES BOOTLOADER IS ALREADY UNLOCKED
 
-1. Download boot, dtbo, vendor_kernel_boot, vendor_boot, rom for lynx from [https://sourceforge.net/projects/evolution-x/files/lynx/14/](https://sourceforge.net/projects/evolution-x/files/lynx/14/)
+1. Download boot, dtbo, vendor_kernel_boot, vendor_boot, rom for lynx from [https://sourceforge.net/projects/cavvoh-os/files/lynx/14/](https://sourceforge.net/projects/cavvoh-os/files/lynx/14/)
 2. Reboot to bootloader
 3.
 ```fastboot flash boot boot.img```
